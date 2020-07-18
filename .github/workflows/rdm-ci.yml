@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: 	macos-10.14
+    runs-on: 	macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -73,7 +73,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: 'v2020.1'
         release_name: 'v2020.1-ci'  
@@ -86,7 +86,7 @@ jobs:
     - name: upload a release Asset
       uses: actions/upload-release-asset@v1.0.2
       env:
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./rdm/bin/osx/release/rdm.dmg

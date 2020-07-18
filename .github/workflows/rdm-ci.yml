@@ -30,7 +30,7 @@ jobs:
     - name: install Python3
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8.3'
+        python-version: '3.7'
     # pip install 
     - name: pip install
       uses: BSFishy/pip-action@v1
